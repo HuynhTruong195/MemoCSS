@@ -1,0 +1,258 @@
+Có 3 cách để nhúng mã CSS vào trong một tài liệu HTML, bao gồm :
+
+(Khai báo trực tiếp ở thẻ HTML (Inline style sheet)
+
+(Khai báo trong thẻ <style> của tài liệu HTML (Internal style sheet)
+    Thông thường, thẻ <style> được đặt bên trong thẻ <head>, nhưng đó không phải là bắt buộc
+
+(Khai báo trong file .css riêng biệt (External style sheet)
+Chúng ta tạo một file có đuôi là .css, chẳng hạn là style.css. Trong file này chúng ta khai báo tất cả các thuộc tính CSS mong muốn. Sau đó, chúng ta nhúng file .css này vào trong tài liệu HTML bằng cách sử dụng thẻ <link>.
+CThẻ <link> được đặt ở trong thẻ <head> của tài liệu HTML.
+
+   1.  VD: <h1 style="color: gold; background: crimson; margin-left: 30px;">Lập trình không khó.</h1>
+     2. vd: <html lang="en">
+            <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+            <style>
+                body {
+                    background: crimson;
+                }
+
+                h1 {
+                    color: gold;
+                    margin-left: 30px;
+                }
+            </style>
+            </head>
+            <body>
+            <h1>Lập trình không khó.</h1>
+            </body>
+            </html>
+         3. vd: <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                <meta charset="UTF-8">
+                <title>Title</title>
+                <link rel="stylesheet" type="text/css" href="style.css">
+                </head>
+                <body>
+                <h1>Lập trình không khó.</h1>
+                </body>
+                </html>
+
+(thuộc tính color
+Mục đích: Được sử dụng để thay đổi màu chữ (text color) của các phần tử HTML.
+     - Tên màu: Sử dụng các từ khóa màu như red, blue, green, black, v.v.
+      p {
+        color: Blue;
+      }
+     - Mã màu HEX: Một chuỗi ký tự bắt đầu bằng #, theo sau là 3 hoặc 6 ký tự đại diện cho màu.
+      h1 {
+        color: #ff5733
+      }
+     - RGB: Sử dụng định dạng rgb(red, green, blue) với giá trị từ 0 đến 255.
+     div {
+        color: rgb(255, 0, 0); /màu đỏ/
+    }
+    - RGBA: Giống như RGB nhưng thêm giá trị độ trong suốt (alpha) từ 0 đến 1
+        span {
+            color: rgba(0, 0, 255, 0.5) /màu xanh dương, trong suốt 50%/
+        }
+    - HSL và HSLA: Sử dụng định dạng hsl(hue, saturation, lightness) hoặc hsla(hue, saturation, lightness, alpha)
+        a {
+            color: hsl(200, 100%, 50%) /màu xanh dương tưới sáng/
+        }
+(thuộc tính background-color: Tương tự như color, bạn có thể sử dụng các định dạng như tên màu, mã HEX, RGB, RGBA, HSL, hoặc HSLA.
+        div {
+            background-color: lightblue;
+        }
+(Có 3 cách thường được dùng để quy định màu sắc trong trang web:
+
+    Sử dụng tên của màu. Chẳng hạn là "red" (đỏ) hoặc "green" (xanh lá cây)
+
+    Sử dụng giá trị RGB ( Red Green Blue). Chẳng hạn là "rgb(255, 0, 0).
+                                giá trị màu từ 0-255. 
+
+    Sử dụng giá trị HEX. Chẳng hạn là "#ff0000".
+    Mã HEX
+
+        Biểu diễn khác của màu dựa trên các giá trị RGB. Tuy nhiên, thay vì biểu diễn bằng cú pháp rgb(value, value, value) thì được biểu diễn dưới dạng 6 chữ số hệ thập lục phân.
+
+ (Bộ thuộc tính về text (Text properties)
+        1.Thuộc tính text-align: Căn chỉnh văn bản theo chiều ngang.
+                    left: Căn trái (mặc định).
+                    right: Căn phải.
+                    center: Căn giữa.
+                    justify: Căn đều hai bên.
+
+                vd: h1 {
+                    text-align: center;
+                }
+
+          2. Thuộc tính text-decoration: Thêm hoặc loại bỏ gạch chân, gạch ngang, hoặc  gạch trên văn bản.      
+
+                vd: a {
+                    text-decoration: underline; /* gạch chân liên kết url*/
+                }
+
+            3. Thuộc tính font-weight: xác định độ dày (đậm hoặc nhạt)
+                Từ khóa:
+                    normal: Độ dày mặc định của chữ (400).
+                    bold: Văn bản in đậm (700).
+                    lighter: Văn bản nhẹ hơn so với phần tử cha.
+                    bolder: Văn bản đậm hơn so với phần tử cha.
+                Giá trị số:  
+                    100: Mỏng nhất (Thin).
+                    200: Nhẹ hơn (Extra Light).
+                    300: Nhẹ (Light).
+                    400: Mặc định (Normal).
+                    500: Trung bình (Medium).
+                    600: Hơi đậm (Semi Bold).
+                    700: Đậm (Bold).
+                    800: Rất đậm (Extra Bold).
+                    900: Siêu đậm (Black).
+
+                    VD: h1 {
+                        font-weight: bold; /* văn bản đậm*/
+                    }
+                        p {
+                            font-weight: 700; /* Đậm*/
+                        }
+            4. Thuộc tính line-height: Điều chỉnh khoảng cách giữa các dòng trong đoạn văn.
+                Giá trị: Có thể là một giá trị cố định (px), tỷ lệ (em), hoặc giá trị số (1.5).
+                VD: 
+                        p {
+                            line-height: 1.8; /* Tăng khoảng cách giữa các dòng*/
+                        }
+
+            5.  Thuộc tính letter-spacing: Mục đích: Điều chỉnh khoảng cách giữa các ký tự trong văn bản.
+                Giá trị: Có thể là một giá trị dương (giãn rộng) hoặc âm (thu hẹp).
+
+                h3 {
+                    letter-spacing: 2px;
+                }
+   (font-family	Xác định kiểu chữ (Arial, Times New Roman, sans-serif...)
+   font-size	Xác định kích thước chữ đơn vị px vd 100px;
+   font-weight	Xác định độ đậm của chữ (normal, bold, 100 - 900)
+   font-style	Xác định kiểu chữ (normal, italic, oblique)
+   font-variant	Chuyển chữ sang dạng chữ nhỏ hơn (small-caps)             
+
+                Font Family  Nếu tên của một phông chữ nhiều hơn một từ, nó phải đặt trong dấu nháy kép, ví dụ: "Times New Roman".
+                Nếu chỉ định nhiều hơn một phông chữ, thì dùng dấu phẩy ( , ) để ngăn cách giữa chúng:
+
+    (margin	Tạo khoảng cách bên ngoài viền của phần tử (ra khỏi phần tử khác)	
+        Khoảng cách giữa các phần tử
+    (padding	Tạo khoảng cách bên trong viền của phần tử (từ nội dung đến viền)
+        Khoảng cách giữa nội dung và viền
+                vd: 
+                Dùng 1 giá trị:
+                margin: 20px;  /* Tạo khoảng cách 20px cho tất cả các cạnh */
+                 padding: 10px; /* Tạo khoảng cách 10px giữa nội dung và viền */
+
+                 Dùng 2 giá trị (trên-dưới / trái-phải):
+                 margin: 10px 20px;  /* Trên và dưới: 10px, Trái và phải: 20px */
+                padding: 5px 15px;  /* Trên và dưới: 5px, Trái và phải: 15px */
+
+                Dùng 4 giá trị (trên - phải - dưới - trái, theo chiều kim đồng hồ):
+                margin: 10px 15px 20px 25px; 
+                /* Trên: 10px, Phải: 15px, Dưới: 20px, Trái: 25px */
+
+                ùng thuộc tính riêng cho từng cạnh:
+                    margin-top: 10px;
+                    margin-right: 15px;
+                    margin-bottom: 20px;
+                    margin-left: 25px;
+
+( Id selector và Class selector
+                ID: được sử dụng để áp dụng style cho một phần tử cụ thể, ID trong HTML phải duy nhất trong toàn bộ tài liệu
+                + Dấu # trước tên ID.
+                        vd: id="header"--> #header { }
+                Class: Class Selector được sử dụng để áp dụng style cho một hoặc nhiều phần tử. Một class có thể được sử dụng trên nhiều phần tử
+
+                + Dấu . trước tên class
+                        vd: Class="header"--> .header { }
+
+(1. Descendant Selector: Chọn tất cả các phần tử con bên trong một phần tử cha, bất kể cấp độ nào.
+Cú pháp: 
+        parent descendant {
+            /* CSS áp dụng cho tất cả phần tử "descendant" bên trong "parent" */
+        }
+        
+        vd:  
+            - ở CSS 
+        .container p {
+            color: blue;
+        }
+
+          -  ở html 
+            <div class="container">
+            <p>Đây là đoạn văn trong .container</p>
+            <div>
+(2. Adjacent selector:   chọn phần tử B mà đứng sau phần tử A
+        vd: ở HTML 
+            <h1> Tiêu đề chính </h1>
+            <p> Đây là đoạn văn đầu tiên.</p>
+            <p>Đây là đoạn văn thứ hai.</p>
+        ở CSS
+            h1 + p {
+                color: blue;
+            }
+    Kết quả : 
+    <p>Đây là đoạn văn đầu tiên.</p> sẽ có màu xanh.
+    <p>Đây là đoạn văn thứ hai.</p> không bị ảnh hưởng.
+
+(Attribute Selector: chọn ra phần tử được gọi để gán hiệu ứng
+
+            vd: ở HTML 
+            <input type="text" />
+            <input type="email" />
+            <input type="text"  />
+
+            ở css
+            input[type="text"] {
+                background-color: red;
+            }
+            kết quả: 2 dong input text có màu nền là đỏ
+
+(1. Pseudo-class: Áp dụng style dựa trên trạng thái của phần tử.
+        Ví dụ:
+       ở  css:
+        a:hover {
+            color: red;
+        }
+        ở html: 
+        <a href="http://...">Di chuột vào tôi!</a>
+        🔹 Kết quả: Khi di chuột vào đường link <a>, chữ sẽ chuyển sang màu đỏ.
+
+        Một số pseudo-class phổ biến
+        Pseudo-class	Chức năng
+        :hover	Khi di chuột vào phần tử. Thường được dùng cho thẻ a
+        :focus	Khi phần tử được focus (nhập vào input)
+        :nth-child(n)	Chọn phần tử con thứ n
+        :first-child	Chọn phần tử con đầu tiên
+        :last-child	Chọn phần tử con cuối cùng
+        :checked	Chọn checkbox đã được tích
+        :not(selector) Chọn các phần tử không khớp với selector.
+
+(2. Pseudo-element: Chọn và định dạng một phần cụ thể của phần tử.
+        cú pháp: selector::pseudo-element {
+            /* CSS áp dụng cho một phần của phần tử */
+        }
+
+        vd: ở css
+        p::first-letter {
+            font-size: 30px;
+            color: blue;
+        }
+            ở html
+            <p>Đây là một đoạn văn.</p>
+     🔹 Kết quả: Chữ cái đầu tiên của <p> sẽ có cỡ chữ to và màu xanh.
+        Một số pseudo-element phổ biến
+        Pseudo-element	Chức năng
+        ::first-letter	Chọn chữ cái đầu tiên
+        ::first-line	Chọn dòng đầu tiên
+        ::before	Thêm nội dung trước phần tử
+        ::after	Thêm nội dung sau phần tử
+        ::selection	Định dạng nội dung khi được bôi đen
+
