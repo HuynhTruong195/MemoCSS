@@ -256,3 +256,13 @@ Cú pháp:
         ::after	Thêm nội dung sau phần tử
         ::selection	Định dạng nội dung khi được bôi đen
 
+( list-style-type: none; bỏ các ký hiệu đánh thứ tự phía trước khi dùng ul li
+  .menu ul {
+            list-style-type: none;
+(inputmode="numeric": Hiển thị bàn phím số trên thiết bị di động
+
+
+(margin: đẩy khoảng cách từ phần từ bên ngoài ra. Khoảng cách từ khối này tới khối khác. Đẩy những phần tử khác ra xa hơn 
+    CÓ THỂ SỬ DỤNG SỐ ÂM
+(padding: đẩy phần tử bên trong ra. khoảng cách từ phần tử bên trong đến khối. Làm cho phạm vi của khối lớn hơn
+    KHÔNG THỂ SỬ DỤNG SỐ ÂM
