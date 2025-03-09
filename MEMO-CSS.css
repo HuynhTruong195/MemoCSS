@@ -262,7 +262,113 @@ Cú pháp:
 (inputmode="numeric": Hiển thị bàn phím số trên thiết bị di động
 
 
-(margin: đẩy khoảng cách từ phần từ bên ngoài ra. Khoảng cách từ khối này tới khối khác. Đẩy những phần tử khác ra xa hơn 
-    CÓ THỂ SỬ DỤNG SỐ ÂM
-(padding: đẩy phần tử bên trong ra. khoảng cách từ phần tử bên trong đến khối. Làm cho phạm vi của khối lớn hơn
-    KHÔNG THỂ SỬ DỤNG SỐ ÂM
+
+Box model là gì
+CSS Box Model là cấu trúc cơ bản để trình bày và định dạng các phần tử HTML. Mỗi phần tử được xem như một hộp bao gồm các thành phần sau:
+
+Content: Nội dung chính của phần tử (văn bản, hình ảnh, v.v.).
+Padding: Khoảng cách giữa nội dung và viền (border).
+Border: Đường viền bao quanh phần tử.
+    Margin: Khoảng cách giữa phần tử và các phần tử khác.
+    (margin: đẩy khoảng cách từ phần từ bên ngoài ra. Khoảng cách từ khối này tới khối khác. Đẩy những phần tử khác ra xa hơn 
+        CÓ THỂ SỬ DỤNG SỐ ÂM
+    (padding: đẩy phần tử bên trong ra. khoảng cách từ phần tử bên trong đến khối. Làm cho phạm vi của khối lớn hơn
+        KHÔNG THỂ SỬ DỤNG SỐ ÂM
+
+ CSS border là một thuộc tính dùng để tạo đường viền bao quanh các phần tử
+  vd: div {                     
+    border: 2px solid red; 
+    }       
+        2px là độ dày của đường viền.
+        solid là kiểu đường viền.
+        red là màu đường viền.
+
+    
+
+Các thuộc tính chi tiết của border
+border-width
+Xác định độ dày của đường viền.
+
+Giá trị có thể là:
+Từ khóa: thin, medium, thick.
+Hoặc đơn vị cụ thể: px, em, %, v.v
+ vd: div {
+    border-width: 5px;
+ }
+
+ border-style: Xác định kiểu dáng của đường viền.
+
+    Giá trị phổ biến:
+    
+    none: Không có đường viền.
+    solid: Đường viền liền mạch.
+    dotted: Đường viền chấm.
+    dashed: Đường viền gạch ngang.
+    double: Đường viền kép.
+    groove: Đường viền lõm vào.
+    ridge: Đường viền nổi lên.
+    inset: Đường viền bên trong.
+    outset: Đường viền bên ngoài.
+    Ví dụ: div {
+        border-style: dashed;
+    }
+
+ border-color
+    Xác định màu của đường viền.
+    
+    Giá trị có thể là:
+    Tên màu: red, blue, green.
+    Mã màu: #FF0000, rgb(255, 0, 0).
+    Ví dụ:
+            div {
+                border-color: blue;
+            }
+
+
+Đường viền từng cạnh
+Bạn có thể đặt đường viền cho từng cạnh riêng biệt:
+
+    border-top
+    border-right
+    border-bottom
+    border-left
+    vd: div {
+        border-top: 2px solid red;
+        border-right: 2px solid blue;
+    }
+
+Bo tròn đường viền
+Thuộc tính border-radius được dùng để tạo góc bo tròn cho đường viền.
+
+Ví dụ: div {
+    border: 2px solid black;
+    border-radius: 10px;
+}
+Bạn cũng có thể bo tròn chỉ một góc:
+        div {
+            border-top-left-radius: 20ox;
+        }
+
+(Box model - display properties
+    element: Tên phần tử HTML (như div, p, span, v.v.).
+    value: Giá trị của thuộc tính display
+Block
+    Hiển thị phần tử dưới dạng khối (block-level element).
+    Phần tử sẽ chiếm toàn bộ chiều rộng của dòng, đẩy phần tử khác xuống dòng tiếp theo.
+        <div style="display: block"> Black Element </div>
+        <p style="display: block"> Paragrap</p>
+inline
+    Hiển thị phần tử dưới dạng nội tuyến (inline-level element).
+    Phần tử không chiếm toàn bộ chiều rộng dòng, có thể đứng cạnh các phần tử khác.
+    Ví dụ: <span style="display: inline;"> Inline Element </span>
+
+inline-block
+    Kết hợp giữa block và inline.
+    Phần tử xếp trên một dòng (như inline), nhưng có thể chỉnh kích thước (như block).
+    Ví dụ: 
+    <div style="display: inline-block; width: 100px height: 50px"> Inline Block</div>
+
+none
+    Ẩn phần tử khỏi trang, không hiển thị và không chiếm không gian trong bố cục.
+    Khác với visibility: hidden (ẩn nhưng vẫn chiếm không gian).
+    Ví dụ: <p style="display: none;"> This text is hidden </p>
