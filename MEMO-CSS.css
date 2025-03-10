@@ -372,3 +372,184 @@ none
     Ẩn phần tử khỏi trang, không hiển thị và không chiếm không gian trong bố cục.
     Khác với visibility: hidden (ẩn nhưng vẫn chiếm không gian).
     Ví dụ: <p style="display: none;"> This text is hidden </p>
+
+
+(Opacity - Alpha channel: 
+    Opacity : điều chỉnh độ trong suốt của phần tử trong html. có giá trị từ 0 đến 1
+    Hiệu ứng:
+Opacity ảnh hưởng đến toàn bộ thành phần, bao gồm cả nội dung con. Ví dụ, nếu bạn đặt opacity: 0.5 cho một div, tất cả văn bản hoặc hình ảnh bên trong div cũng sẽ bị
+        vd: <div style="backround-color: red; opacity: 0,5"> </div>
+
+Alpha channel: thường được sử dụng khi làm việc với màu sắc trong CSS thông qua định dạng màu hỗ trợ kênh alpha, chẳng hạn:
+    rgba (Red-Green-Blue-Alpha): Hỗ trợ kênh alpha để xác định mức độ trong suốt.
+    hsla (Hue-Saturation-Lightness-Alpha): Tương tự, hỗ trợ kênh alpha.
+    Giá trị của alpha trong rgba hoặc hsla nằm trong khoảng từ 0 đến 1:
+    alpha = 1 → Màu hoàn toàn không trong suốt.
+    alpha = 0 → Màu hoàn toàn trong suốt
+    *Lưu ý: Alpha channel chỉ áp dụng cho màu nền hoặc màu đường viền, không ảnh hưởng đến các phần tử con. ngược lại opacity ảnh hưởng toàn bộ thành phần
+
+        vd: <div style="backround-color: red; opacity: 0.5;"> </div>
+                        Nội dung bị mở toàn bộ
+            <div style="backround-color: rgba(255, 0, 0, 0.5)" </div>
+                        Nội dung rõ ràng chỉ màu nền mờ
+
+
+
+(Position properties
+
+1. static (mặc định)
+    Đặc điểm:
+    Đây là giá trị mặc định của tất cả các phần tử HTML.
+    Phần tử được đặt theo thứ tự tài liệu thông thường (flow document).
+    Không thể sử dụng các thuộc tính định vị như top, right, bottom, hoặc left.
+        <div style="position: static;"> đây là một phần tử với vị trí mặc định. </div>
+
+2. relative (tương đối)
+    Đặc điểm:
+    Phần tử vẫn giữ vị trí ban đầu trong tài liệu.
+    Các thuộc tính định vị (top, right, bottom, left) sẽ điều chỉnh vị trí của phần tử dựa trên vị trí ban đầu.
+    Không ảnh hưởng đến vị trí của các phần tử khác.
+    Ví dụ:
+     <div style="position: relative; top: 20px; left: 30px;"> đây là một phần tử tương đối đc dịch chuyển 20px xuống cách top và 30px sang các lề trái.
+
+ 3. absolute (tuyệt đối)
+    Đặc điểm:
+    Phần tử được định vị tương đối với phần tử cha gần nhất có thuộc tính position khác static.
+    Nếu không có phần tử tổ tiên nào có position khác static, phần tử sẽ được định vị tương đối với viewport (trang gốc).
+    Các thuộc tính top, right, bottom, left xác định vị trí chính xác của phần
+    vd:  <div style="position: relative; height: 200px; width: 300px; backround: red;"> 
+    Phần tử chứa <div style="position: absolute; top: 10px; left: 10px backround: coral;"> Phần tử con tuyệt đối </div> 
+            </div>
+
+4. fixed (Cố định)
+    Đặc điểm:
+    Phần tử được định vị tương đối với viewport và không thay đổi vị trí khi cuộn trang.
+    Các thuộc tính top, right, bottom, left xác định vị trí cố định trên viewport.
+        FIXED THƯỜNG ĐƯỢC DÙNG ĐỂ LÀM THANH ĐIỀU HƯỚNG HOẶC NÚT " LÊN ĐẦU TRANG"
+
+        ✅ Tổng kết ngắn gọn
+        Thuộc tính	    Ghi nhớ
+        static	        Vị trí mặc định (không thể định dạng top,left...)
+        relative	    Dịch nhẹ cách vị trí gốc (CÓ thể định dạng top,left...)
+                    chỉ nên use 2 phần tử top-left;right-bot... để căn chỉnh theo chuẩn Ngang và Dọc
+        absolute	    dịch ra Vị trí tương đối theo trình duyệt hoặc theo thẻ Cha. 
+                    khi đó thẻ cha phải thêm mốc position: relative cho thẻ cha
+        fixed	        Ghim trên màn hình. cuộn thanh kéo thì fixed vẫn nằm yên k đổi
+        sticky	        Dính khi cuộn tới. tương tự như fixed nhưng stiky nó sẽ luôn nằm ở đầu trang khi kéo xuống dưới
+
+
+
+ 👉 Transition: tạo hiệu ứng chuyển đổi
+transition trong CSS giúp tạo hiệu ứng chuyển động mượt mà khi giá trị CSS thay đổi.
+
+👉 Không còn thay đổi đột ngột, mà sẽ chuyển đổi từ từ (ví dụ: đổi màu, đổi kích thước, xoay nhẹ...).
+
+cú pháp: 
+selector {
+    transition: property duration easing delay;
+  }
+  property: Thuộc tính cần tạo hiệu ứng (ví dụ: background-color, transform, opacity, ...)
+  duration: Thời gian hiệu ứng (ví dụ: 0.5s, 1s)
+  easing: Kiểu chuyển động (mượt, đều, tăng nhanh rồi chậm lại, ...)
+  delay: Trễ bao lâu trước khi hiệu ứng bắt đầu
+
+🧩 3. Các thuộc tính Transition hay dùng
+  Thuộc tính	        Mô tả dễ hiểu
+  background-color  	Đổi màu nền mượt
+  color	                 Đổi màu chữ mượt
+  width,                 height	Thay đổi kích thước mềm mại
+  transform         	 Xoay, phóng to, thu nhỏ mượt
+  opacity	             Làm mờ, hiện mượt
+  box-shadow	         Tạo đổ bóng mượt
+  
+    vd:
+     <style>
+        .box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        transition: background-color 0.5s ease;
+        }
+
+        .box:hover {
+        background-color: tomato;
+        }
+        </style>
+        </head>
+        <body>
+        <div class="box">Di chuột vào đây!</div>
+
+    vd2: phóng to khi rê chuột vào
+        .box {
+            transition: transform 0.3s ease-in-out;
+          }
+          
+          .box:hover {
+            transform: scale(1.2); }  Phóng to 120% * 
+            
+Timing-function
+    Xác định cách tốc độ thay đổi trong suốt quá trình chuyển đổi.
+    Các giá trị phổ biến:
+    linear: Tốc độ không đổi.
+    ease: Mặc định, thay đổi mượt mà.
+    ease-in: Tăng tốc dần.
+    ease-out: Giảm tốc dần.
+    ease-in-out: Tăng tốc rồi giảm tốc.
+    cubic-bezier(n, n, n, n): Tùy chỉnh đường cong chuyển đổi.
+
+LƯU Ý:  Không phải tất cả các thuộc tính CSS đều hỗ trợ transition. Ví dụ, thuộc tính display không thể chuyển đổi.
+Hiệu năng: Quá nhiều transition hoặc transition phức tạp có thể ảnh hưởng đến hiệu suất, đặc biệt trên thiết bị di động.
+Kết hợp với pseudo-classes: Transition thường được sử dụng với :hover, :focus, hoặc :active để tạo các hiệu ứng tương tác.
+
+
+🌀 transform
+transform là thuộc tính CSS dùng để biến đổi hình dạng hoặc vị trí của một phần tử HTML, ví dụ như:
+
+    ✨ Xoay (rotate)  để thay trục để xoay thì dùng tranform-origin: bottom left;
+        có thể xoay theo trục X hoặc Y, rotateX (90deg) xoay theo trục X 90 độ 
+            
+    📏 Phóng to / thu nhỏ (scale) tương tự rotate
+   
+    🔄 Dịch chuyển (translate)
+    🔁 Nghiêng (skew)
+
+ 🧠 Cú pháp cơ bản:
+  
+    selector {
+      transform: loại_biến_đổi(giá_trị);
+    }
+
+    🔧 Các loại transform thường dùng:
+Loại	             Cú pháp	              Ý nghĩa
+translate(x, y)	      translate(50px, 20px)	        Di chuyển phần tử (x: ngang, y: dọc)
+scale(x)	            scale(1.2)	                  Phóng to (1.2 lần) hoặc thu nhỏ (0.8 lần)
+rotate(deg)	            rotate(45deg)	              Xoay phần tử theo góc (ví dụ: 45 độ)
+skew(x, y)	            skew(10deg, 5deg)	        Nghiêng phần tử
+matrix(...)         	phức tạp hơn	            Kết hợp nhiều hiệu ứng (ít dùng cho người mới)
+
+vd: 
+🔍 Phóng to khi hover
+.box {
+    transition: transform 0.3s;
+  }
+  
+  .box:hover {
+    transform: scale(1.2);          📌 Khi di chuột vào .box, phần tử sẽ phóng to 120%
+  }
+
+  🔁 Xoay phần tử
+  .box {
+    transform: rotate(45deg);       📌 Phần tử bị xoay 45 độ theo chiều kim đồng hồ
+  }
+
+  📐 Nghiêng phần tử
+  .box {
+    transform: skew(20deg, 10deg);    📌 Phần tử bị nghiêng theo trục X 20 độ, trục Y 10 độ
+  } 
+
+  🧩 Kết hợp nhiều transform
+  .box {
+    transform: translate(20px, 0) scale(1.1) rotate(10deg);
+  }
+  📌 Di chuyển sang phải, phóng to và xoay nhẹ – rất mượt nếu dùng với transition.
+
